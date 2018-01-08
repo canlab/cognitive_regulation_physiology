@@ -475,9 +475,12 @@ for i = 1:size(test_ecg_int{1},1)
 end
 glm_ecg_int = glmfit_multilevel(yy_int, xx, [], 'names', {'intcp', 'temp', 'reg', 'intera'}, ...
      'verbose', 'boot', 'nresample', 10000);
+%% 
+% ECG unpleasantness
+%%
+
 glm_ecg_unp = glmfit_multilevel(yy_unp, xx, [], 'names', {'intcp', 'temp', 'reg', 'intera'}, ...
     'verbose', 'boot', 'nresample', 10000);
-save(fullfile(datdir, 'ECG_prediction_dat_112816.mat'), '-append', 'glm_ecg_*');
 %% 
 % 5-4. Plotting GLM results
 % 
@@ -535,7 +538,7 @@ reg = [ones(6,1)*-1; zeros(6,1); ones(6,1)*1];
 
 %% passive vs. down
 
-clear yy_int yy_unp;
+clear xx yy_int yy_unp;
 
 for i = 1:size(test_ecg_int{1},1)
     xx{i} = [temp(1:12) scale(reg(1:12),1) scale(temp(1:12),1).*scale(reg(1:12),1)];
@@ -550,10 +553,10 @@ for i = 1:size(test_ecg_int{1},1)
     end
 end
 
-glm_ecg_int = glmfit_multilevel(yy_int, xx, [], 'names', {'intcp', 'temp', 'reg', 'intera'}, ...
+glm_ecg_int1 = glmfit_multilevel(yy_int, xx, [], 'names', {'intcp', 'temp', 'reg', 'intera'}, ...
     'verbose', 'boot', 'nresample', 10000);
 
-glm_ecg_unp = glmfit_multilevel(yy_unp, xx, [], 'names', {'intcp', 'temp', 'reg', 'intera'}, ...
+glm_ecg_unp1 = glmfit_multilevel(yy_unp, xx, [], 'names', {'intcp', 'temp', 'reg', 'intera'}, ...
     'verbose', 'boot', 'nresample', 10000);
 
 %% 
@@ -575,8 +578,13 @@ for i = 1:size(test_ecg_int{1},1)
     end
 end
 
-glm_scr_int = glmfit_multilevel(yy_int, xx, [], 'names', {'intcp', 'temp', 'reg', 'intera'}, ...
+glm_ecg_int2 = glmfit_multilevel(yy_int, xx, [], 'names', {'intcp', 'temp', 'reg', 'intera'}, ...
      'verbose', 'boot', 'nresample', 10000);
 
-glm_scr_unp = glmfit_multilevel(yy_unp, xx, [], 'names', {'intcp', 'temp', 'reg', 'intera'}, ...
+glm_ecg_unp2 = glmfit_multilevel(yy_unp, xx, [], 'names', {'intcp', 'temp', 'reg', 'intera'}, ...
     'verbose', 'boot', 'nresample', 10000);
+%%
+mean(glm_ecg_int2.first_level.beta(3,:)'-glm_ecg_int1.first_level.beta(3,:)')
+[~, p, ~, tstat] = ttest(glm_ecg_int2.first_level.beta(3,:)'-glm_ecg_int1.first_level.beta(3,:)')
+mean(glm_ecg_unp2.first_level.beta(3,:)'-glm_ecg_unp1.first_level.beta(3,:)')
+[~, p, ~, tstat] = ttest(glm_ecg_unp2.first_level.beta(3,:)'-glm_ecg_unp1.first_level.beta(3,:)')

@@ -525,10 +525,12 @@ for i = 1:size(test_scr_int{1},1)
 end
 glm_scr_int = glmfit_multilevel(yy_int, xx, [], 'names', {'intcp', 'temp', 'reg', 'intera'}, ...
     'verbose', 'boot', 'nresample', 10000);
+%% 
+% for SCR unpleasantness
+%%
 
 glm_scr_unp = glmfit_multilevel(yy_unp, xx, [], 'names', {'intcp', 'temp', 'reg', 'intera'}, ...
     'verbose', 'boot', 'nresample', 10000);
-save(fullfile(datdir, 'SCR_prediction_dat_112816.mat'), '-append', 'glm_scr_*');
 
 %% 
 % 5-4. Plotting GLM results
@@ -609,10 +611,10 @@ for i = 1:size(test_scr_int{1},1)
     end
 end
 
-glm_scr_int = glmfit_multilevel(yy_int, xx, [], 'names', {'intcp', 'temp', 'reg', 'intera'}, ...
+glm_scr_int1 = glmfit_multilevel(yy_int, xx, [], 'names', {'intcp', 'temp', 'reg', 'intera'}, ...
      'verbose', 'boot', 'nresample', 10000);
 
-glm_scr_unp = glmfit_multilevel(yy_unp, xx, [], 'names', {'intcp', 'temp', 'reg', 'intera'}, ...
+glm_scr_unp1 = glmfit_multilevel(yy_unp, xx, [], 'names', {'intcp', 'temp', 'reg', 'intera'}, ...
     'verbose', 'boot', 'nresample', 10000);
 
 %% 
@@ -635,8 +637,13 @@ for i = 1:size(test_scr_int{1},1)
     end
 end
 
-glm_scr_int = glmfit_multilevel(yy_int, xx, [], 'names', {'intcp', 'temp', 'reg', 'intera'}, ...
+glm_scr_int2 = glmfit_multilevel(yy_int, xx, [], 'names', {'intcp', 'temp', 'reg', 'intera'}, ...
      'verbose', 'boot', 'nresample', 10000);
 
-glm_scr_unp = glmfit_multilevel(yy_unp, xx, [], 'names', {'intcp', 'temp', 'reg', 'intera'}, ...
+glm_scr_unp2 = glmfit_multilevel(yy_unp, xx, [], 'names', {'intcp', 'temp', 'reg', 'intera'}, ...
      'verbose', 'boot', 'nresample', 10000);
+%%
+mean(glm_scr_int2.first_level.beta(3,:)'-glm_scr_int1.first_level.beta(3,:)')
+[~, p, ~, tstat] = ttest(glm_scr_int2.first_level.beta(3,:)'-glm_scr_int1.first_level.beta(3,:)')
+mean(glm_scr_unp2.first_level.beta(3,:)'-glm_scr_unp1.first_level.beta(3,:)')
+[~, p, ~, tstat] = ttest(glm_scr_unp2.first_level.beta(3,:)'-glm_scr_unp1.first_level.beta(3,:)')
