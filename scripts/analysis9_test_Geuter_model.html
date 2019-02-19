@@ -1,0 +1,454 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB R2018b"><title>Testing Geuter SCR model </title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.7999992370605px; min-height: 0px; white-space: pre-wrap; color: rgb(213, 80, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: normal; text-align: left;  }
+.CodeBlock { background-color: #F7F7F7; margin: 10px 0 10px 0;}
+.S1 { border-left: 1.20481932163239px solid rgb(233, 233, 233); border-right: 1.20481932163239px solid rgb(233, 233, 233); border-top: 1.20481932163239px solid rgb(233, 233, 233); border-bottom: 0px none rgb(0, 0, 0); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 17.234001159668px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, 'Courier New', monospace; font-size: 14px;  }
+.S2 { border-left: 1.20481932163239px solid rgb(233, 233, 233); border-right: 1.20481932163239px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 0px none rgb(0, 0, 0); border-radius: 0px; padding: 0px 45px 0px 13px; line-height: 17.234001159668px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, 'Courier New', monospace; font-size: 14px;  }
+.S3 { border-left: 1.20481932163239px solid rgb(233, 233, 233); border-right: 1.20481932163239px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 1.20481932163239px solid rgb(233, 233, 233); border-radius: 0px 0px 4px 4px; padding: 0px 45px 4px 13px; line-height: 17.234001159668px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, 'Courier New', monospace; font-size: 14px;  }
+.S4 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(60, 60, 60); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: bold; text-align: left;  }
+.S5 { border-left: 1.20481932163239px solid rgb(233, 233, 233); border-right: 1.20481932163239px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 1.20481932163239px solid rgb(233, 233, 233); border-radius: 0px; padding: 0px 45px 4px 13px; line-height: 17.234001159668px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, 'Courier New', monospace; font-size: 14px;  }
+.S6 { color: rgb(64, 64, 64); padding: 10px 0px 6px 17px; background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box; font-family: Menlo, Monaco, Consolas, 'Courier New', monospace; font-size: 14px; overflow-x: hidden; line-height: 17.234001159668px;  }
+.embeddedOutputsErrorElement {min-height: 18px; max-height: 250px; overflow: auto;}
+.embeddedOutputsErrorElement.inlineElement {}
+.embeddedOutputsErrorElement.rightPaneElement {}
+.embeddedOutputsWarningElement{min-height: 18px; max-height: 250px; overflow: auto;}
+.embeddedOutputsWarningElement.inlineElement {}
+.embeddedOutputsWarningElement.rightPaneElement {}
+.diagnosticMessage-wrapper {font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 12px;}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType {color: rgb(255,100,0);}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType a {color: rgb(255,100,0); text-decoration: underline;}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType {color: rgb(230,0,0);}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType a {color: rgb(230,0,0); text-decoration: underline;}
+.diagnosticMessage-wrapper .diagnosticMessage-messagePart {white-space: pre-wrap;}
+.diagnosticMessage-wrapper .diagnosticMessage-stackPart {white-space: pre;}
+.embeddedOutputsTextElement,.embeddedOutputsVariableStringElement {white-space: pre; word-wrap: initial; min-height: 18px; max-height: 250px; overflow: auto;}
+.textElement,.rtcDataTipElement .textElement {padding-top: 3px;}
+.embeddedOutputsTextElement.inlineElement,.embeddedOutputsVariableStringElement.inlineElement {}
+.inlineElement .textElement {}
+.embeddedOutputsTextElement.rightPaneElement,.embeddedOutputsVariableStringElement.rightPaneElement {min-height: 16px;}
+.rightPaneElement .textElement {padding-top: 2px; padding-left: 9px;}
+.S7 { border-left: 1.20481932163239px solid rgb(233, 233, 233); border-right: 1.20481932163239px solid rgb(233, 233, 233); border-top: 1.20481932163239px solid rgb(233, 233, 233); border-bottom: 1.20481932163239px solid rgb(233, 233, 233); border-radius: 0px; padding: 6px 45px 4px 13px; line-height: 17.234001159668px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, 'Courier New', monospace; font-size: 14px;  }
+.S8 { border-left: 1.20481932163239px solid rgb(233, 233, 233); border-right: 1.20481932163239px solid rgb(233, 233, 233); border-top: 1.20481932163239px solid rgb(233, 233, 233); border-bottom: 0px none rgb(0, 0, 0); border-radius: 0px; padding: 6px 45px 0px 13px; line-height: 17.234001159668px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, 'Courier New', monospace; font-size: 14px;  }
+.S9 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: normal; text-align: left;  }
+.S10 { margin: 10px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: normal; text-align: left;  }
+.S11 { border-left: 1.20481932163239px solid rgb(233, 233, 233); border-right: 1.20481932163239px solid rgb(233, 233, 233); border-top: 1.20481932163239px solid rgb(233, 233, 233); border-bottom: 1.20481932163239px solid rgb(233, 233, 233); border-radius: 0px 0px 4px 4px; padding: 6px 45px 4px 13px; line-height: 17.234001159668px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, 'Courier New', monospace; font-size: 14px;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>Testing Geuter SCR model </span></h1><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre;"><span>clear;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>close </span><span style="color: rgb(160, 32, 240);">all</span><span>;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>basedir = </span><span style="color: rgb(160, 32, 240);">'/Users/clinpsywoo/Dropbox/github/MWW_inprep/scripts'</span><span>;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>cd(basedir);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>load(</span><span style="color: rgb(160, 32, 240);">'../data/CRB_dataset_SCR_lpf5Hz_DS25Hz_011516.mat'</span><span>);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>figdir = </span><span style="color: rgb(160, 32, 240);">'../figures'</span><span>;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>datdir = </span><span style="color: rgb(160, 32, 240);">'../data'</span><span>;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'></div></div></div><h2  class = 'S4'><span>Step 1. Creating Y: pain ratings</span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">for </span><span>i = 1:numel(D.Event_Level.data)</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    </span><span class="warning_squiggle_rte">y_int</span><span>{i} = D.Event_Level.data{i}(:,12);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    </span><span class="warning_squiggle_rte">y_unp</span><span>{i} = -2*(D.Event_Level.data{i}(:,13)-50);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    </span><span class="warning_squiggle_rte">xx</span><span>{i} = [D.Event_Level.data{i}(:,11) D.Event_Level.data{i}(:,16) scale(D.Event_Level.data{i}(:,11),1).*scale(D.Event_Level.data{i}(:,16),1)];</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    </span><span class="warning_squiggle_rte">reg</span><span>{i} = D.Event_Level.data{i}(:,16);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    </span><span class="warning_squiggle_rte">temp</span><span>{i} = D.Event_Level.data{i}(:,11);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>u_temp = unique(temp{1});</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>u_reg = unique(reg{1});</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">for </span><span>subj = 1:numel(temp)</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    </span><span style="color: rgb(0, 0, 255);">for </span><span>i = 1:numel(u_temp)</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>        </span><span style="color: rgb(0, 0, 255);">for </span><span>j = 1:numel(u_reg)</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>            </span><span class="warning_squiggle_rte">dat_int</span><span>{i,j}(subj,1) = nanmean(y_int{subj}(temp{subj}==u_temp(i) &amp; reg{subj}==u_reg(j)));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>            </span><span class="warning_squiggle_rte">dat_unp</span><span>{i,j}(subj,1) = nanmean(y_unp{subj}(temp{subj}==u_temp(i) &amp; reg{subj}==u_reg(j)));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>        </span><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    </span><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'></div></div></div><h2  class = 'S4'><span>Step 2. Creating X: SCR data (averaged over three trials)</span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">for </span><span>j = 1:numel(D.Continuous.data)      </span><span style="color: rgb(34, 139, 34);">% loop through subjects</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    scr = D.Continuous.data{j};         </span><span style="color: rgb(34, 139, 34);">% SCR data for each person</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    ons = D.Event_Level.data{j}(:,5);   </span><span style="color: rgb(34, 139, 34);">% Heat onset </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    </span><span style="color: rgb(0, 0, 255);">for </span><span>ii = 1:6</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>        </span><span style="color: rgb(0, 0, 255);">for </span><span>jj = 1:3</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>            </span><span class="warning_squiggle_rte">signal</span><span>{j}.cond{ii, jj} = [];  </span><span style="color: rgb(34, 139, 34);">% pre-allocation </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>        </span><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    </span><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>        </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    </span><span style="color: rgb(0, 0, 255);">for </span><span>i = 1:numel(ons)</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>        temp_lev = D.Event_Level.data{j}(i,11)-43;  </span><span style="color: rgb(34, 139, 34);">% temperature level 1-6</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>        reg_lev = D.Event_Level.data{j}(i,16)+2;    </span><span style="color: rgb(34, 139, 34);">% regulation level 1-3</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>        a = round((ons(i)-3)*25);                   </span><span style="color: rgb(34, 139, 34);">% onset in 25 Hz</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>        signal{j}.cond{temp_lev, reg_lev}(end+1,:) = scr(a:(a+(23*25))); </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>                                                    </span><span style="color: rgb(34, 139, 34);">% get data for 23 seconds</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    </span><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>clear </span><span style="color: rgb(160, 32, 240);">signal_m</span><span>;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>k = 0;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">for </span><span>i = 1:6</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    </span><span style="color: rgb(0, 0, 255);">for </span><span>j = 1:3</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>        k = k + 1;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>        </span><span style="color: rgb(0, 0, 255);">for </span><span>subj = 1:numel(signal)</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>            </span><span class="warning_squiggle_rte">signal_m</span><span>{i,j}(subj,:) = mean(signal{subj}.cond{i,j} - repmat(mean(signal{subj}.cond{i,j}(:,1:75),2), 1, size(signal{subj}.cond{i,j},2)));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>                                                     </span><span style="color: rgb(34, 139, 34);">% subtracting the baseline, and then average</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>        </span><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    </span><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'></div></div></div><h2  class = 'S4'><span>Step 3. Test Geuter et al. (2014)'s 17-second SCR model</span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre;"><span>scr = load(fullfile(datdir, </span><span style="color: rgb(160, 32, 240);">'SCR_prediction_dat_112816.mat'</span><span>));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>load(fullfile(datdir, </span><span style="color: rgb(160, 32, 240);">'Geuter_SCR_model.mat'</span><span>));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span style="color: rgb(34, 139, 34);">% Applying the model on regulation trials using leave-one-participant-out cross validation</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">for </span><span>i = 1:3</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    </span><span style="color: rgb(0, 0, 255);">for </span><span>j = 1:6</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>        </span><span style="color: rgb(0, 0, 255);">for </span><span>subj = 1:size(scr.signal_m{j,i},1)</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>            </span><span class="warning_squiggle_rte">test_scr_int</span><span>{j,i}(subj,1) = scr.signal_m{j,i}(subj,76:575)*Geuter_SCR_model(1:500);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>            </span><span class="warning_squiggle_rte">test_scr_unp</span><span>{j,i}(subj,1) = scr.signal_m{j,i}(subj,76:575)*Geuter_SCR_model(1:500);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>        </span><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    </span><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>temp_int = reshape(scr.pcr_stats.int.yfit, 41, 6);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>temp_unp = reshape(scr.pcr_stats.unp.yfit, 41, 6);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">for </span><span>j = 1:6</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    test_scr_int{j,2} = temp_int(:,j);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    test_scr_unp{j,2} = temp_unp(:,j);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span style="color: rgb(34, 139, 34);">% scatter plot</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>y_int_passive = cat(2,scr.dat_int{:,2});</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>yfit_int_passive = cat(2,test_scr_int{:,2});</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>y_unp_passive = cat(2,scr.dat_unp{:,1});</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>yfit_unp_passive = cat(2,test_scr_int{:,1});</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>y_int = [cat(2,scr.dat_int{:,1}) cat(2,scr.dat_int{:,3})];</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>yfit_int = [cat(2,test_scr_int{:,1}) cat(2,test_scr_int{:,3})];</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>y_unp = [cat(2,scr.dat_unp{:,1}) cat(2,scr.dat_unp{:,3})];</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>yfit_unp = [cat(2,test_scr_int{:,1}) cat(2,test_scr_int{:,3})];</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'></div></div></div><h2  class = 'S4'><span>Step 4. correlations</span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre;"><span>clear </span><span style="color: rgb(160, 32, 240);">test_por</span><span>;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">for </span><span>i = 1:size(y_int,1)</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    x = y_int(i,:);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    y = yfit_int(i,:);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    </span><span class="warning_squiggle_rte">test_por_int</span><span>(i) = corr(x',y');</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    x = y_unp(i,:);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    y = yfit_unp(i,:);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    </span><span class="warning_squiggle_rte">test_por_unp</span><span>(i) = corr(x',y');</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    x = y_int_passive(i,:);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    y = yfit_int_passive(i,:);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    </span><span class="warning_squiggle_rte">test_por_int_passive</span><span>(i) = corr(x',y');</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    x = y_unp_passive(i,:);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    y = yfit_unp_passive(i,:);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    </span><span class="warning_squiggle_rte">test_por_unp_passive</span><span>(i) = corr(x',y');</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'></div></div><div class="inlineWrapper outputs"><div  class = 'S5'><span style="white-space: pre;"><span>fprintf(</span><span style="color: rgb(160, 32, 240);">'\nTest results: mean prediction_outcome_r for intensity (passive) = %1.3f'</span><span>, mean(test_por_int_passive));</span></span></div><div  class = 'S6'><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="3914EED5" data-scroll-top="null" data-scroll-left="null" data-testid="output_0" data-width="1424" data-height="18" data-hashorizontaloverflow="false" style="width: 1454px; max-height: 261px;"><div class="textElement">Test results: mean prediction_outcome_r for intensity (passive) = 0.831</div></div></div></div><div class="inlineWrapper outputs"><div  class = 'S7'><span style="white-space: pre;"><span>fprintf(</span><span style="color: rgb(160, 32, 240);">'\nTest results: mean prediction_outcome_r for unpleasantness (passive) = %1.3f'</span><span>, mean(test_por_unp_passive));</span></span></div><div  class = 'S6'><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="69EC13F6" data-scroll-top="null" data-scroll-left="null" data-testid="output_1" data-width="1424" data-height="18" data-hashorizontaloverflow="false" style="width: 1454px; max-height: 261px;"><div class="textElement">Test results: mean prediction_outcome_r for unpleasantness (passive) = 0.674</div></div></div></div><div class="inlineWrapper"><div  class = 'S8'></div></div><div class="inlineWrapper"><div  class = 'S2'></div></div><div class="inlineWrapper outputs"><div  class = 'S5'><span style="white-space: pre;"><span>fprintf(</span><span style="color: rgb(160, 32, 240);">'\nTest results: mean prediction_outcome_r for intensity (regulation) = %1.3f'</span><span>, mean(test_por_int));</span></span></div><div  class = 'S6'><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="4E007B98" data-scroll-top="null" data-scroll-left="null" data-testid="output_2" data-width="1424" data-height="18" data-hashorizontaloverflow="false" style="width: 1454px; max-height: 261px;"><div class="textElement">Test results: mean prediction_outcome_r for intensity (regulation) = 0.805</div></div></div></div><div class="inlineWrapper outputs"><div  class = 'S7'><span style="white-space: pre;"><span>fprintf(</span><span style="color: rgb(160, 32, 240);">'\nTest results: mean prediction_outcome_r for unpleasantness (regulation)= %1.3f'</span><span>, mean(test_por_unp));</span></span></div><div  class = 'S6'><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="4A518977" data-scroll-top="null" data-scroll-left="null" data-testid="output_3" data-width="1424" data-height="18" data-hashorizontaloverflow="false" style="width: 1454px; max-height: 261px;"><div class="textElement">Test results: mean prediction_outcome_r for unpleasantness (regulation)= 0.710</div></div></div></div></div><h2  class = 'S4'><span>Ste</span><span>p 5. </span><span>Test the effects of temperature and regulation on SCR pattern response</span></h2><div  class = 'S9'><span>5-1. multilevel GLM analysis for SCR intensity </span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre;"><span>temp = repmat(1:6, 1, 3)';</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>reg = [ones(6,1)*-1; zeros(6,1); ones(6,1)*1];</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">for </span><span>i = 1:size(test_scr_int{1},1)</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    xx{i} = [temp reg scale(temp,1).*scale(reg,1)];</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    kk = 0;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    </span><span style="color: rgb(0, 0, 255);">for </span><span>k = 1:3</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>        </span><span style="color: rgb(0, 0, 255);">for </span><span>j = 1:6</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>            kk = kk + 1;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>            </span><span class="warning_squiggle_rte">yy_int</span><span>{i}(kk,1) = test_scr_int{j,k}(i);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>            </span><span class="warning_squiggle_rte">yy_unp</span><span>{i}(kk,1) = test_scr_unp{j,k}(i);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>        </span><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    </span><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span class="warning_squiggle_rte">glm_scr_int</span><span> = glmfit_multilevel(yy_int, xx, [], </span><span style="color: rgb(160, 32, 240);">'names'</span><span>, {</span><span style="color: rgb(160, 32, 240);">'intcp'</span><span>, </span><span style="color: rgb(160, 32, 240);">'temp'</span><span>, </span><span style="color: rgb(160, 32, 240);">'reg'</span><span>, </span><span style="color: rgb(160, 32, 240);">'intera'</span><span>}, </span><span style="color: rgb(0, 0, 255);">...</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S5'><span style="white-space: pre;"><span>    </span><span style="color: rgb(160, 32, 240);">'weighted'</span><span>, </span><span style="color: rgb(160, 32, 240);">'verbose'</span><span>, </span><span style="color: rgb(160, 32, 240);">'boot'</span><span>, </span><span style="color: rgb(160, 32, 240);">'nresample'</span><span>, 10000);</span></span></div><div  class = 'S6'><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement scrollableOutput" uid="3F11360D" data-scroll-top="248.1927760748962" data-scroll-left="0" data-testid="output_4" data-width="1424" data-height="509" data-hashorizontaloverflow="false" style="width: 1454px; max-height: 261px;"><div class="textElement">Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  41, Predictors:   1
+Outcome names: intcp	temp	reg	intera	
+Weighting option: weighted
+Inference option: bootstrap
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R &amp; B - type Empirical Bayes reweighting.
+ Min p-value is 0.000000. Needed: 10000 samples
+ Bootstrapping 10000 samples... Bootstrap done in 0.00 s, bias correct in 0.00 s 
+Total time: 0.38 s
+
+________________________________________
+Average p-value tolerance (average max alpha): 0.0060
+
+Bootstrapped statistics. Bootstrap inference
+	Outcome variables:
+	intcp	temp	reg	intera	
+Adj. mean	-8.36	5.99	1.53	0.94	
+
+2nd-level B01
+	intcp	temp	reg	intera	
+Coeff	-8.35	5.99	1.54	0.94	
+STE	0.91	0.59	0.50	0.25	
+t	-6.45	8.43	2.93	3.52	
+Z	-3.98	4.00	3.63	4.45	
+p	0.00007	0.00006	0.00028	0.00001	
+
+________________________________________</div></div></div></div><div class="inlineWrapper"><div  class = 'S8'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span class="warning_squiggle_rte">glm_scr_unp</span><span> = glmfit_multilevel(yy_unp, xx, [], </span><span style="color: rgb(160, 32, 240);">'names'</span><span>, {</span><span style="color: rgb(160, 32, 240);">'intcp'</span><span>, </span><span style="color: rgb(160, 32, 240);">'temp'</span><span>, </span><span style="color: rgb(160, 32, 240);">'reg'</span><span>, </span><span style="color: rgb(160, 32, 240);">'intera'</span><span>}, </span><span style="color: rgb(0, 0, 255);">...</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S5'><span style="white-space: pre;"><span>    </span><span style="color: rgb(160, 32, 240);">'weighted'</span><span>, </span><span style="color: rgb(160, 32, 240);">'verbose'</span><span>, </span><span style="color: rgb(160, 32, 240);">'boot'</span><span>, </span><span style="color: rgb(160, 32, 240);">'nresample'</span><span>, 10000);</span></span></div><div  class = 'S6'><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement scrollableOutput" uid="853B0C01" data-scroll-top="248.1927760748962" data-scroll-left="0" data-testid="output_5" data-width="1424" data-height="509" data-hashorizontaloverflow="false" style="width: 1454px; max-height: 261px;"><div class="textElement">Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  41, Predictors:   1
+Outcome names: intcp	temp	reg	intera	
+Weighting option: weighted
+Inference option: bootstrap
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R &amp; B - type Empirical Bayes reweighting.
+ Min p-value is 0.000000. Needed: 10000 samples
+ Bootstrapping 10000 samples... Bootstrap done in 0.00 s, bias correct in 0.00 s 
+Total time: 0.48 s
+
+________________________________________
+Average p-value tolerance (average max alpha): 0.0060
+
+Bootstrapped statistics. Bootstrap inference
+	Outcome variables:
+	intcp	temp	reg	intera	
+Adj. mean	-10.89	6.01	1.37	0.86	
+
+2nd-level B01
+	intcp	temp	reg	intera	
+Coeff	-10.88	6.00	1.38	0.87	
+STE	0.81	0.58	0.44	0.23	
+t	-8.32	8.27	2.72	3.31	
+Z	-4.02	3.96	3.71	4.52	
+p	0.00006	0.00007	0.00020	0.00001	
+
+________________________________________</div></div></div></div></div><div  class = 'S10'><span>5-2. Test up vs. passive, passive vs. down</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre;"><span>temp = repmat(1:6, 1, 3)';</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>reg = [ones(6,1)*-1; zeros(6,1); ones(6,1)*1];</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span style="color: rgb(34, 139, 34);">%% passive vs. down</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>clear </span><span style="color: rgb(160, 32, 240);">yy_int yy_unp</span><span>;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">for </span><span>i = 1:size(test_scr_int{1},1)</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    reg_pass_down = reg(1:12);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    reg_pass_down(reg_pass_down==0) = 1;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    xx{i} = [temp(1:12) reg_pass_down scale(temp(1:12),1).*scale(reg_pass_down,1)];</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    kk = 0;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    </span><span style="color: rgb(0, 0, 255);">for </span><span>k = 1:2</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>        </span><span style="color: rgb(0, 0, 255);">for </span><span>j = 1:6</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>            kk = kk + 1;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>            </span><span class="warning_squiggle_rte">yy_int</span><span>{i}(kk,1) = test_scr_int{j,k}(i);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>            </span><span class="warning_squiggle_rte">yy_unp</span><span>{i}(kk,1) = test_scr_unp{j,k}(i);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>        </span><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    </span><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span class="warning_squiggle_rte">glm_scr_int</span><span> = glmfit_multilevel(yy_int, xx, [], </span><span style="color: rgb(160, 32, 240);">'names'</span><span>, {</span><span style="color: rgb(160, 32, 240);">'intcp'</span><span>, </span><span style="color: rgb(160, 32, 240);">'temp'</span><span>, </span><span style="color: rgb(160, 32, 240);">'reg'</span><span>, </span><span style="color: rgb(160, 32, 240);">'intera'</span><span>}, </span><span style="color: rgb(0, 0, 255);">...</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S5'><span style="white-space: pre;"><span>    </span><span style="color: rgb(160, 32, 240);">'weighted'</span><span>, </span><span style="color: rgb(160, 32, 240);">'verbose'</span><span>, </span><span style="color: rgb(160, 32, 240);">'boot'</span><span>, </span><span style="color: rgb(160, 32, 240);">'nresample'</span><span>, 10000);</span></span></div><div  class = 'S6'><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement scrollableOutput" uid="14989AB0" data-scroll-top="248.1927760748962" data-scroll-left="0" data-testid="output_6" data-width="1424" data-height="509" data-hashorizontaloverflow="false" style="width: 1454px; max-height: 261px;"><div class="textElement">Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  41, Predictors:   1
+Outcome names: intcp	temp	reg	intera	
+Weighting option: weighted
+Inference option: bootstrap
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R &amp; B - type Empirical Bayes reweighting.
+ Min p-value is 0.000000. Needed: 10000 samples
+ Bootstrapping 10000 samples... Bootstrap done in 0.00 s, bias correct in 0.00 s 
+Total time: 0.40 s
+
+________________________________________
+Average p-value tolerance (average max alpha): 0.0060
+
+Bootstrapped statistics. Bootstrap inference
+	Outcome variables:
+	intcp	temp	reg	intera	
+Adj. mean	-2.66	4.52	6.43	-2.00	
+
+2nd-level B01
+	intcp	temp	reg	intera	
+Coeff	-2.65	4.52	6.43	-2.00	
+STE	0.93	0.55	0.82	0.26	
+t	-2.33	7.15	7.99	-6.14	
+Z	-2.92	4.33	3.38	-3.65	
+p	0.00347	0.00002	0.00072	0.00026	
+
+________________________________________</div></div></div></div><div class="inlineWrapper"><div  class = 'S8'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span class="warning_squiggle_rte">glm_scr_unp</span><span> = glmfit_multilevel(yy_unp, xx, [], </span><span style="color: rgb(160, 32, 240);">'names'</span><span>, {</span><span style="color: rgb(160, 32, 240);">'intcp'</span><span>, </span><span style="color: rgb(160, 32, 240);">'temp'</span><span>, </span><span style="color: rgb(160, 32, 240);">'reg'</span><span>, </span><span style="color: rgb(160, 32, 240);">'intera'</span><span>}, </span><span style="color: rgb(0, 0, 255);">...</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S5'><span style="white-space: pre;"><span>    </span><span style="color: rgb(160, 32, 240);">'weighted'</span><span>, </span><span style="color: rgb(160, 32, 240);">'verbose'</span><span>, </span><span style="color: rgb(160, 32, 240);">'boot'</span><span>, </span><span style="color: rgb(160, 32, 240);">'nresample'</span><span>, 10000);</span></span></div><div  class = 'S6'><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement scrollableOutput" uid="44A57D28" data-scroll-top="248.1927760748962" data-scroll-left="0" data-testid="output_7" data-width="1424" data-height="509" data-hashorizontaloverflow="false" style="width: 1454px; max-height: 261px;"><div class="textElement">Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  41, Predictors:   1
+Outcome names: intcp	temp	reg	intera	
+Weighting option: weighted
+Inference option: bootstrap
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R &amp; B - type Empirical Bayes reweighting.
+ Min p-value is 0.000000. Needed: 10000 samples
+ Bootstrapping 10000 samples... Bootstrap done in 0.00 s, bias correct in 0.00 s 
+Total time: 0.42 s
+
+________________________________________
+Average p-value tolerance (average max alpha): 0.0060
+
+Bootstrapped statistics. Bootstrap inference
+	Outcome variables:
+	intcp	temp	reg	intera	
+Adj. mean	-6.81	4.67	2.76	-1.86	
+
+2nd-level B01
+	intcp	temp	reg	intera	
+Coeff	-6.81	4.67	2.76	-1.86	
+STE	0.85	0.57	0.72	0.24	
+t	-5.81	7.06	3.66	-6.08	
+Z	-3.83	4.33	3.47	-3.69	
+p	0.00013	0.00001	0.00051	0.00023	
+
+________________________________________</div></div></div></div><div class="inlineWrapper"><div  class = 'S11'></div></div></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre;"><span style="color: rgb(34, 139, 34);">%% up vs. passive</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>clear </span><span style="color: rgb(160, 32, 240);">yy_int yy_unp</span><span>;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">for </span><span>i = 1:size(test_scr_int{1},1)</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    reg_up_pass = reg(7:18);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    reg_up_pass(reg_up_pass==0) = -1;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    xx{i} = [temp(7:18) reg_up_pass scale(temp(7:18),1).*scale(reg_up_pass,1)];</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    kk = 0;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    </span><span style="color: rgb(0, 0, 255);">for </span><span>k = 2:3</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>        </span><span style="color: rgb(0, 0, 255);">for </span><span>j = 1:6</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>            kk = kk + 1;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>            </span><span class="warning_squiggle_rte">yy_int</span><span>{i}(kk,1) = test_scr_int{j,k}(i);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>            </span><span class="warning_squiggle_rte">yy_unp</span><span>{i}(kk,1) = test_scr_unp{j,k}(i);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>        </span><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>    </span><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>glm_scr_int = glmfit_multilevel(yy_int, xx, [], </span><span style="color: rgb(160, 32, 240);">'names'</span><span>, {</span><span style="color: rgb(160, 32, 240);">'intcp'</span><span>, </span><span style="color: rgb(160, 32, 240);">'temp'</span><span>, </span><span style="color: rgb(160, 32, 240);">'reg'</span><span>, </span><span style="color: rgb(160, 32, 240);">'intera'</span><span>}, </span><span style="color: rgb(0, 0, 255);">...</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S5'><span style="white-space: pre;"><span>    </span><span style="color: rgb(160, 32, 240);">'weighted'</span><span>, </span><span style="color: rgb(160, 32, 240);">'verbose'</span><span>, </span><span style="color: rgb(160, 32, 240);">'boot'</span><span>, </span><span style="color: rgb(160, 32, 240);">'nresample'</span><span>, 10000);</span></span></div><div  class = 'S6'><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement scrollableOutput" uid="0EB07574" data-scroll-top="248.1927760748962" data-scroll-left="0" data-testid="output_8" data-width="1424" data-height="509" data-hashorizontaloverflow="false" style="width: 1454px; max-height: 261px;"><div class="textElement">Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  41, Predictors:   1
+Outcome names: intcp	temp	reg	intera	
+Weighting option: weighted
+Inference option: bootstrap
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R &amp; B - type Empirical Bayes reweighting.
+ Min p-value is 0.000000. Needed: 10000 samples
+ Bootstrapping 10000 samples... Bootstrap done in 0.00 s, bias correct in 0.00 s 
+Total time: 0.43 s
+
+________________________________________
+Average p-value tolerance (average max alpha): 0.0060
+
+Bootstrapped statistics. Bootstrap inference
+	Outcome variables:
+	intcp	temp	reg	intera	
+Adj. mean	-4.88	5.61	-4.76	3.10	
+
+2nd-level B01
+	intcp	temp	reg	intera	
+Coeff	-4.86	5.60	-4.76	3.09	
+STE	0.99	0.57	0.97	0.29	
+t	-4.05	8.40	-4.87	8.40	
+Z	-3.82	4.15	-3.92	4.11	
+p	0.00013	0.00003	0.00009	0.00004	
+
+________________________________________</div></div></div></div><div class="inlineWrapper"><div  class = 'S8'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>glm_scr_unp = glmfit_multilevel(yy_unp, xx, [], </span><span style="color: rgb(160, 32, 240);">'names'</span><span>, {</span><span style="color: rgb(160, 32, 240);">'intcp'</span><span>, </span><span style="color: rgb(160, 32, 240);">'temp'</span><span>, </span><span style="color: rgb(160, 32, 240);">'reg'</span><span>, </span><span style="color: rgb(160, 32, 240);">'intera'</span><span>}, </span><span style="color: rgb(0, 0, 255);">...</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S5'><span style="white-space: pre;"><span>    </span><span style="color: rgb(160, 32, 240);">'weighted'</span><span>, </span><span style="color: rgb(160, 32, 240);">'verbose'</span><span>, </span><span style="color: rgb(160, 32, 240);">'boot'</span><span>, </span><span style="color: rgb(160, 32, 240);">'nresample'</span><span>, 10000);</span></span></div><div  class = 'S6'><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement scrollableOutput" uid="D2C53280" data-scroll-top="248.1927760748962" data-scroll-left="0" data-testid="output_9" data-width="1424" data-height="509" data-hashorizontaloverflow="false" style="width: 1454px; max-height: 261px;"><div class="textElement">Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  41, Predictors:   1
+Outcome names: intcp	temp	reg	intera	
+Weighting option: weighted
+Inference option: bootstrap
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R &amp; B - type Empirical Bayes reweighting.
+ Min p-value is 0.000000. Needed: 10000 samples
+ Bootstrapping 10000 samples... Bootstrap done in 0.00 s, bias correct in 0.00 s 
+Total time: 0.42 s
+
+________________________________________
+Average p-value tolerance (average max alpha): 0.0060
+
+Bootstrapped statistics. Bootstrap inference
+	Outcome variables:
+	intcp	temp	reg	intera	
+Adj. mean	-8.99	5.74	-1.11	2.94	
+
+2nd-level B01
+	intcp	temp	reg	intera	
+Coeff	-8.99	5.75	-1.11	2.94	
+STE	0.91	0.59	0.90	0.28	
+t	-7.32	8.28	-1.18	8.42	
+Z	-3.72	4.22	-1.25	4.15	
+p	0.00020	0.00002	0.21307	0.00003	
+
+________________________________________</div></div></div></div><div class="inlineWrapper"><div  class = 'S11'></div></div></div></div><br>
+<!-- 
+##### SOURCE BEGIN #####
+%% Testing Geuter SCR model 
+
+clear;
+close all;
+
+basedir = '/Users/clinpsywoo/Dropbox/github/MWW_inprep/scripts';
+cd(basedir);
+
+load('../data/CRB_dataset_SCR_lpf5Hz_DS25Hz_011516.mat');
+
+figdir = '../figures';
+datdir = '../data';
+
+%% Step 1. Creating Y: pain ratings
+%%
+for i = 1:numel(D.Event_Level.data)
+    y_int{i} = D.Event_Level.data{i}(:,12);
+    y_unp{i} = -2*(D.Event_Level.data{i}(:,13)-50);
+    xx{i} = [D.Event_Level.data{i}(:,11) D.Event_Level.data{i}(:,16) scale(D.Event_Level.data{i}(:,11),1).*scale(D.Event_Level.data{i}(:,16),1)];
+    reg{i} = D.Event_Level.data{i}(:,16);
+    temp{i} = D.Event_Level.data{i}(:,11);
+end
+
+u_temp = unique(temp{1});
+u_reg = unique(reg{1});
+
+for subj = 1:numel(temp)
+    for i = 1:numel(u_temp)
+        for j = 1:numel(u_reg)
+            dat_int{i,j}(subj,1) = nanmean(y_int{subj}(temp{subj}==u_temp(i) & reg{subj}==u_reg(j)));
+            dat_unp{i,j}(subj,1) = nanmean(y_unp{subj}(temp{subj}==u_temp(i) & reg{subj}==u_reg(j)));
+        end
+    end
+end
+
+%% Step 2. Creating X: SCR data (averaged over three trials)
+%%
+for j = 1:numel(D.Continuous.data)      % loop through subjects
+    
+    scr = D.Continuous.data{j};         % SCR data for each person
+    
+    ons = D.Event_Level.data{j}(:,5);   % Heat onset 
+    
+    for ii = 1:6
+        for jj = 1:3
+            signal{j}.cond{ii, jj} = [];  % pre-allocation 
+        end
+    end
+        
+    for i = 1:numel(ons)
+        temp_lev = D.Event_Level.data{j}(i,11)-43;  % temperature level 1-6
+        reg_lev = D.Event_Level.data{j}(i,16)+2;    % regulation level 1-3
+        a = round((ons(i)-3)*25);                   % onset in 25 Hz
+        signal{j}.cond{temp_lev, reg_lev}(end+1,:) = scr(a:(a+(23*25))); 
+                                                    % get data for 23 seconds
+    end
+end
+
+clear signal_m;
+k = 0;
+
+for i = 1:6
+    for j = 1:3
+        k = k + 1;
+        for subj = 1:numel(signal)
+            signal_m{i,j}(subj,:) = mean(signal{subj}.cond{i,j} - repmat(mean(signal{subj}.cond{i,j}(:,1:75),2), 1, size(signal{subj}.cond{i,j},2)));
+                                                     % subtracting the baseline, and then average
+        end
+    end
+end
+
+%% Step 3. Test Geuter et al. (2014)'s 17-second SCR model
+%%
+scr = load(fullfile(datdir, 'SCR_prediction_dat_112816.mat'));
+load(fullfile(datdir, 'Geuter_SCR_model.mat'));
+
+% Applying the model on regulation trials using leave-one-participant-out cross validation
+for i = 1:3
+    for j = 1:6
+        for subj = 1:size(scr.signal_m{j,i},1)
+            test_scr_int{j,i}(subj,1) = scr.signal_m{j,i}(subj,76:575)*Geuter_SCR_model(1:500);
+            test_scr_unp{j,i}(subj,1) = scr.signal_m{j,i}(subj,76:575)*Geuter_SCR_model(1:500);
+        end
+    end
+end
+
+temp_int = reshape(scr.pcr_stats.int.yfit, 41, 6);
+temp_unp = reshape(scr.pcr_stats.unp.yfit, 41, 6);
+
+for j = 1:6
+    test_scr_int{j,2} = temp_int(:,j);
+    test_scr_unp{j,2} = temp_unp(:,j);
+end
+
+% scatter plot
+y_int_passive = cat(2,scr.dat_int{:,2});
+yfit_int_passive = cat(2,test_scr_int{:,2});
+
+y_unp_passive = cat(2,scr.dat_unp{:,1});
+yfit_unp_passive = cat(2,test_scr_int{:,1});
+
+y_int = [cat(2,scr.dat_int{:,1}) cat(2,scr.dat_int{:,3})];
+yfit_int = [cat(2,test_scr_int{:,1}) cat(2,test_scr_int{:,3})];
+
+y_unp = [cat(2,scr.dat_unp{:,1}) cat(2,scr.dat_unp{:,3})];
+yfit_unp = [cat(2,test_scr_int{:,1}) cat(2,test_scr_int{:,3})];
+
+%% Step 4. correlations
+%%
+clear test_por;
+for i = 1:size(y_int,1)
+    x = y_int(i,:);
+    y = yfit_int(i,:);
+    test_por_int(i) = corr(x',y');
+    
+    x = y_unp(i,:);
+    y = yfit_unp(i,:);
+    test_por_unp(i) = corr(x',y');
+    
+    x = y_int_passive(i,:);
+    y = yfit_int_passive(i,:);
+    test_por_int_passive(i) = corr(x',y');
+    
+    x = y_unp_passive(i,:);
+    y = yfit_unp_passive(i,:);
+    test_por_unp_passive(i) = corr(x',y');
+end
+
+fprintf('\nTest results: mean prediction_outcome_r for intensity (passive) = %1.3f', mean(test_por_int_passive));
+fprintf('\nTest results: mean prediction_outcome_r for unpleasantness (passive) = %1.3f', mean(test_por_unp_passive));
+
+
+fprintf('\nTest results: mean prediction_outcome_r for intensity (regulation) = %1.3f', mean(test_por_int));
+fprintf('\nTest results: mean prediction_outcome_r for unpleasantness (regulation)= %1.3f', mean(test_por_unp));
+%% Step 5. Test the effects of temperature and regulation on SCR pattern response
+% 5-1. multilevel GLM analysis for SCR intensity 
+
+temp = repmat(1:6, 1, 3)';
+reg = [ones(6,1)*-1; zeros(6,1); ones(6,1)*1];
+for i = 1:size(test_scr_int{1},1)
+    xx{i} = [temp reg scale(temp,1).*scale(reg,1)];
+    
+    kk = 0;
+    for k = 1:3
+        for j = 1:6
+            kk = kk + 1;
+            yy_int{i}(kk,1) = test_scr_int{j,k}(i);
+            yy_unp{i}(kk,1) = test_scr_unp{j,k}(i);
+        end
+    end
+end
+glm_scr_int = glmfit_multilevel(yy_int, xx, [], 'names', {'intcp', 'temp', 'reg', 'intera'}, ...
+    'weighted', 'verbose', 'boot', 'nresample', 10000);
+
+glm_scr_unp = glmfit_multilevel(yy_unp, xx, [], 'names', {'intcp', 'temp', 'reg', 'intera'}, ...
+    'weighted', 'verbose', 'boot', 'nresample', 10000);
+%% 
+% 5-2. Test up vs. passive, passive vs. down
+
+temp = repmat(1:6, 1, 3)';
+reg = [ones(6,1)*-1; zeros(6,1); ones(6,1)*1];
+
+%% passive vs. down
+
+clear yy_int yy_unp;
+
+for i = 1:size(test_scr_int{1},1)
+    reg_pass_down = reg(1:12);
+    reg_pass_down(reg_pass_down==0) = 1;
+    xx{i} = [temp(1:12) reg_pass_down scale(temp(1:12),1).*scale(reg_pass_down,1)];
+    
+    kk = 0;
+    for k = 1:2
+        for j = 1:6
+            kk = kk + 1;
+            yy_int{i}(kk,1) = test_scr_int{j,k}(i);
+            yy_unp{i}(kk,1) = test_scr_unp{j,k}(i);
+        end
+    end
+end
+
+glm_scr_int = glmfit_multilevel(yy_int, xx, [], 'names', {'intcp', 'temp', 'reg', 'intera'}, ...
+    'weighted', 'verbose', 'boot', 'nresample', 10000);
+
+glm_scr_unp = glmfit_multilevel(yy_unp, xx, [], 'names', {'intcp', 'temp', 'reg', 'intera'}, ...
+    'weighted', 'verbose', 'boot', 'nresample', 10000);
+
+%%
+%% up vs. passive
+
+clear yy_int yy_unp;
+
+for i = 1:size(test_scr_int{1},1)
+    
+    reg_up_pass = reg(7:18);
+    reg_up_pass(reg_up_pass==0) = -1;
+    xx{i} = [temp(7:18) reg_up_pass scale(temp(7:18),1).*scale(reg_up_pass,1)];
+    
+    kk = 0;
+    for k = 2:3
+        for j = 1:6
+            kk = kk + 1;
+            yy_int{i}(kk,1) = test_scr_int{j,k}(i);
+            yy_unp{i}(kk,1) = test_scr_unp{j,k}(i);
+        end
+    end
+end
+
+glm_scr_int = glmfit_multilevel(yy_int, xx, [], 'names', {'intcp', 'temp', 'reg', 'intera'}, ...
+    'weighted', 'verbose', 'boot', 'nresample', 10000);
+
+glm_scr_unp = glmfit_multilevel(yy_unp, xx, [], 'names', {'intcp', 'temp', 'reg', 'intera'}, ...
+    'weighted', 'verbose', 'boot', 'nresample', 10000);
+##### SOURCE END #####
+--></body></html>
