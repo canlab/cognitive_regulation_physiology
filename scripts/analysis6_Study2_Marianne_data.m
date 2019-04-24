@@ -9,7 +9,7 @@
 close all;
 clear;
 
-basedir = '/Users/clinpsywoo/github/CRB_project/MWW_inprep/scripts';
+basedir = '/Users/clinpsywoo/Dropbox/github/cognitive_regulation_physiology/scripts';
 cd(basedir);
 
 load('../marianne_data/CT_SCR_TempSort_Wani.mat');
@@ -112,7 +112,7 @@ end
 
 for i = 1:3
     hold on;
-    wani_plot_shading(x, mean(signal_m.partner{i}), ste(signal_m.main{i}), 'color', cols(i,:), 'alpha', .2);
+    wani_plot_shading(x, mean(signal_m.partner{i}), ste(signal_m.partner{i}), 'color', cols(i,:), 'alpha', .2);
     % line([615 660], repmat(median(mean(signal_m.partner{i},2)), 1, 2), 'color', cols(i,:), 'linewidth', 3)
     % [~,idx.partner{i}] = max(signal_m.partner{i}(:,76:575)');
     % scatter([idx.partner{i}'+75], ones(numel(idx.partner{i}),1)+i./40-.05, 20, cols(i,:), 'filled')
@@ -165,7 +165,7 @@ end
 clear glm_x*;
 
 for i = 1:numel(y_partner_max{3})
-    glm_y_patner_max{i} = [y_partner_max{1}(i);y_partner_max{2}(i);y_partner_max{3}(i)];
+    glm_y_partner_max{i} = [y_partner_max{1}(i);y_partner_max{2}(i);y_partner_max{3}(i)];
     glm_x_49_47{i} = [-1;0;1];
     glm_x_49_48{i} = [0;-1;1];
     glm_x_48_47{i} = [-1;1;0];
@@ -178,7 +178,7 @@ glmstats.partner_max{3} = glmfit_multilevel(glm_y_partner_max, glm_x_48_47, [], 
 contrasts = {'49 vs. 47', '49 vs. 48', '48 vs. 47'};
 glmresults =  glmstats.partner_max;
 for i = 1:3
-    fprintf('\nfor %s, beta = %.3f +- %.3f, z = %.3f, p = %.4f', contrasts{i}, glmresults{i}.beta(2), glmresults{i}.ste(2), glmresults{i}.z(2), glmresults{i}.p(2))
+    fprintf('\nfor %s, beta = %.3f +- %.3f, z = %.3f, p = %.5f', contrasts{i}, glmresults{i}.beta(2), glmresults{i}.ste(2), glmresults{i}.z(2), glmresults{i}.p(2))
 end
 
 %% Main vs Partner
