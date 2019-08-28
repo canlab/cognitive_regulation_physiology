@@ -20,7 +20,7 @@ Preprint: [biorxiv](https://www.biorxiv.org/content/10.1101/361519v1)
 
 Video abstract: [Youtube](https://www.youtube.com/watch?v=R1QtvyAt-F8)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/R1QtvyAt-F8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Video abstract](https://img.youtube.com/vi/R1QtvyAt-F8/0.jpg)](https://www.youtube.com/watch?v=R1QtvyAt-F8 "Video abstract")
 
 
 ### Abstract
