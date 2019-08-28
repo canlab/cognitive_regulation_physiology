@@ -11,7 +11,8 @@ All scripts are written in matlab (version > 2016b) using matlab live script (ml
 
 Gordon Matthewson\*, Choong-Wan Woo\*, Marianne C. Reddan, Tor D. Wager<sup>§</sup> (in press) Cognitive self-regulation influences pain-related physiology, _PAIN_
 
-*equally contributed to this work
+*co-first authors 
+
 <sup>§</sup>corresponding author: Tor D. Wager (tor.d.wager@dartmouth.edu)
 
 PAIN: [link](https://journals.lww.com/pain/Abstract/publishahead/Cognitive_self_regulation_influences_pain_related.98669.aspx)
