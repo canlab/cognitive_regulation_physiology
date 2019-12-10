@@ -11,7 +11,7 @@ All scripts are written in matlab (version > 2016b) using matlab live script (ml
 
 Gordon Matthewson\*, Choong-Wan Woo\*, Marianne C. Reddan, Tor D. Wager<sup>§</sup> (in press) Cognitive self-regulation influences pain-related physiology, _PAIN_
 
-*co-first authors 
+*co-first authors
 
 <sup>§</sup>corresponding author: Tor D. Wager (tor.d.wager@dartmouth.edu)
 
@@ -28,3 +28,13 @@ Video abstract: [Youtube](https://www.youtube.com/watch?v=R1QtvyAt-F8)
 
 Cognitive self-regulation can shape pain experience, but its effects on affects autonomic responses to painful events is unclear. In this study, participants (N = 41) deployed a cognitive strategy based on reappraisal and imagination to regulate pain up or down on different trials while skin conductance responses (SCR) and electrocardiogram (ECG) activity were recorded. Using a machine learning approach, we first developed stimulus-locked SCR and ECG physiological markers predictive of pain ratings. The physiological markers demonstrated high sensitivity and moderate specificity in predicting pain across two datasets, including an independent test dataset (N = 84). When we tested the markers on the cognitive self-regulation data, we found that cognitive self-regulation had significant impacts on both pain ratings and pain-related physiology in accordance with regulatory goals. These findings suggest that self-regulation can impact autonomic nervous system responses to painful stimuli and provide pain-related autonomic profiles for future studies.
 
+About the pain-related skin conductance response (SCR)/Electrodermal Response (EDR) measure:
+
+The weight pattern to apply to new data can be found in https://github.com/canlab/cognitive_regulation_physiology/tree/master/data
+
+SCR_weights.mat
+ECG_weights.mat
+
+Each one has the 500x1 vector for intensity and unpleasantness.
+
+To use it, you would need to apply it to an EDA time series locked to stimulus onset. It was validated to pain intensity under variations in painful stimulation, with limited specificity to pain, as described in our paper (Matthewson, Woo et al. in press, Pain; Bioarxiv https://www.biorxiv.org/content/10.1101/361519v2.abstract). However, it has not been broadly validated to be specific to pain, so there is no set cutoff for the amplitude of the integrated measure that signals “pain”. 
